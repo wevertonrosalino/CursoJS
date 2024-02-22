@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nativo ou estrangeiro?</title>
+</head>
+<body>
+    <h1>Verificação de nacionalidade</h1>
+    Em qual pais você reside?: <input type="text" name="txt1" id="txt1" oninput="validarInput()">
+    <input type="button" value="Verificar" onclick="checar()">
+    <div id="nat">
+
+    </div>
+    <script>
+        function checar() {
+            var txr = document.getElementById('txt1').value // o 'value' buscar o valor do input, ou seja oque o usuario de fato digitou
+            var nat = document.getElementById('nat')
+            if (txr.toLowerCase() === 'brasil') { //joga o que o usuriario digitou tudo para minusculas
+                nat.innerHTML = 'Parabéns, você é brasileiro!'
+            } else {
+                nat.innerHTML = 'Infelizmente você é estrangeiro!'
+            }
+        }
+
+        function validarInput() {
+            var txr = document.getElementById('txt1')
+            txr.value = txr.value.replace(/[^a-zA-Z]/g, '') // permite apenas caracteres alfabéticos
+        }
+    </script>
+</body>
+</html>
